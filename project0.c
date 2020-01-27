@@ -1,19 +1,23 @@
-<stdio.h>
+#include <stdio.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <unistd.h>
 
-int main()
+int main(int argc,char* argv [])
 {
+	if(argc == 1 || *argv[1] == '-'){
+	printf("this is it");
+	}
 	printf("Hello World");
 	return 0;
 }
 
-void readBytes(){
-int fileDesc;
+void readBytes()
+{
+int fd;
 char charBuffer;
-
-fd = open("filename.txt", O_RDONLY);
-
-	
-
+fd = open("filename.txt", O_RDONLY);	
 }
 
 void logic ()
