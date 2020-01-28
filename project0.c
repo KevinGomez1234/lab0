@@ -60,7 +60,8 @@ void printInformation(int file_descriptor)
 				counter =0;
 				decimal = 0;
 				parityCounter = 0;
-			}			
+			}
+		}
 	}	
 	//counter is less than 7
 		
