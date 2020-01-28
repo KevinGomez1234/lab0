@@ -43,7 +43,7 @@ void printInformation(int file_descriptor)
 	printf("Original\tASCII\tDecimal\tParity\n");
 	printf("--------\t--------\t--------\t--------\n");
 
-	while((read(file_descriptor, &charBuffer, 1) > 0)
+	while((read(file_descriptor, &charBuffer, 1) > 0))
 	{
 		if((int)charBuffer == 49 ||(int)charBuffer == 48)
 		{
@@ -62,6 +62,7 @@ void printInformation(int file_descriptor)
 				parityCounter = 0;
 			}
 		}
-	}	
+	}
+}
 	//counter is less than 7
 		//0 and 1 for loops find binary and parity.
