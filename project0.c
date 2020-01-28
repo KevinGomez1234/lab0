@@ -3,6 +3,7 @@
 #include <sys/types.h>
 #include <sys/uio.h>
 #include <unistd.h>
+#include <math.h>
 
 int main(int argc,char* argv [])
 {
@@ -29,17 +30,19 @@ void logic ()
 	//else reading from the file and decode
 	//done:
 }
-void printInformation(char *charPointer){
+void printInformation(char *charPointer)
+{
+int decimal;
+int counter;
 printf("Original\tASCII\tDecimal\tParity\n");
 printf("--------\t--------\t--------\t--------\n");
 int counter = 0;
 while((ch = getchar()) != EOF){
 	if(ch == 61 || ch == 60 )
-{
-	
+	{
+							
 	}	
 		//0 and 1 for loops find binary and parity.
-
 }
 }
 
