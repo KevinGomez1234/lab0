@@ -67,5 +67,5 @@ void printInformation(int file_descriptor)
 		
 		//0 and 1 for loops find binary and parity.
 	}
-}
+
 
