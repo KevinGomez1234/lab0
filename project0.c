@@ -35,10 +35,9 @@ void printInformation(int file_descriptor)
 	int decimal = 0;
 	int counter = 0;
 	int parityCounter = 0;
-	const char t [] = "true";
-	const char f [] = "false";
-	const char *ptr;
-	ptr = f;
+	char t [] = "true";
+	char f [] = "false";
+	char *ptr = f;
 	char charBuffer;
 	printf("Original\tASCII\tDecimal\tParity\n");
 	printf("--------\t--------\t--------\t--------\n");
@@ -47,7 +46,7 @@ void printInformation(int file_descriptor)
 	{
 		if((int)charBuffer == 49 ||(int)charBuffer == 48)
 		{
-			decimal =  (decimal + pow (2, counter)) * (int)charBuffer;
+			decimal =  (decimal + pow(2, counter)) * (int)charBuffer;
 			counter++;
 			printf("%c", (int)charBuffer);
 			if((int)charBuffer== 49)
@@ -55,8 +54,8 @@ void printInformation(int file_descriptor)
 			if (counter == 7)
 			{
 				if(parityCounter % 2 == 0)
-					ptr = &t;				
-				printf("\t%c\t%d\t%s", decimal, decimal,*ptr);
+					ptr = t;				
+				printf("\t%c\t%d\t%s", decimal, decimal, ptr);
 				counter =0;
 				decimal = 0;
 				parityCounter = 0;
