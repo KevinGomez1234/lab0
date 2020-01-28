@@ -50,7 +50,7 @@ void printInformation(int file_descriptor)
 			decimal =  (decimal + pow (2, counter)) * (int)charBuffer;
 			counter++;
 			printf("%c", (int)charBuffer);
-			if(ch == 49)
+			if((int)charBuffer== 49)
 				parityCounter++;
 			if (counter == 7)
 			{
