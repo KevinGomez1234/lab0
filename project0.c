@@ -64,8 +64,4 @@ void printInformation(int file_descriptor)
 		}
 	}	
 	//counter is less than 7
-		
 		//0 and 1 for loops find binary and parity.
-	}
-
-
