@@ -7,7 +7,7 @@
 int main(int argc,char* argv [])
 {
 	if(argc == 1 || *argv[1] == '-'){
-	printf("this is it");
+	//scanf	
 	}
 	printf("Hello World");
 	return 0;
@@ -15,9 +15,9 @@ int main(int argc,char* argv [])
 
 void readBytes()
 {
-int fd;
-char charBuffer;
-fd = open("filename.txt", O_RDONLY);	
+	int fd;
+	char charBuffer;
+	fd = open("filename.txt", O_RDONLY);	
 }
 
 void logic ()
@@ -29,3 +29,17 @@ void logic ()
 	//else reading from the file and decode
 	//done:
 }
+void printInformation(char *charPointer){
+printf("Original\tASCII\tDecimal\tParity\n");
+printf("--------\t--------\t--------\t--------\n");
+int counter = 0;
+while((ch = getchar()) != EOF){
+	if(ch == 61 || ch == 60 )
+{
+	
+	}	
+		//0 and 1 for loops find binary and parity.
+
+}
+}
+
