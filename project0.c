@@ -3,28 +3,33 @@
 #include <sys/types.h>
 #include <sys/uio.h>
 #include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+
 #include <math.h>
 
+void printInformation();
+void logic();
 int main(int argc,char* argv [])
 {
-	if(argc == 1 || *argv[1] == '-'){
-	//scanf	
-	}
-	printf("Hello World");
+	logic(argc,argv);
 	return 0;
 }
 
-void readBytes()
-{
-	int fd;
-	char charBuffer;
-	fd = open("filename.txt", O_RDONLY);	
-}
 
-void logic ()
+void logic (int argc,char* argv [])
 {
 	printf("Original\tASCII\tDecimal\tParity");
-	printf("\n--------\t--------\t--------\t--------");
+	printf("\n--------\t--------\t--------\t--------\n");
+	if(argc == 1 || *argv[1] == '-')
+	{
+		printInformation(0);	
+	}
+	else
+	{
+		int fd = open(argv[1], O_RDONLY);
+		printInformation(fd);
+	}
 	//decide whether reading from file or stdout
 	//if reading from stdin then decode that
 	//else reading from the file and decode
@@ -33,34 +38,40 @@ void logic ()
 void printInformation(int file_descriptor)
 {
 	int decimal = 0;
-	int counter = 0;
-	int parityCounter = 0;
-	char t [] = "true";
-	char f [] = "false";
+	int counter = 7;
+	int parityChecker = 0;
+	char t [] = "even";
+	char f [] = "odd";
 	char *ptr = f;
-	char charBuffer;
-	printf("Original\tASCII\tDecimal\tParity\n");
-	printf("--------\t--------\t--------\t--------\n");
-
-	while((read(file_descriptor, &charBuffer, 1) > 0))
+	char ch;
+	while(read(file_descriptor, &ch, sizeof(ch)) > 0 && ch != '\n')
 	{
-		if((int)charBuffer == 49 ||(int)charBuffer == 48)
+		if((int)ch == 49 ||(int)ch == 48)
 		{
-			decimal =  (decimal + pow(2, counter)) * (int)charBuffer;
-			counter++;
-			printf("%c", (int)charBuffer);
-			if((int)charBuffer== 49)
-				parityCounter++;
-			if (counter == 7)
-			{
-				if(parityCounter % 2 == 0)
-					ptr = t;				
-				printf("\t%c\t%d\t%s", decimal, decimal, ptr);
-				counter =0;
-				decimal = 0;
-				parityCounter = 0;
-			}
+			if (atoi(&ch) == 1)
+				parityChecker++;
+			//gets 8 bit number
+			decimal = (pow(2, counter) * atoi(&ch)) + decimal;
+			counter--;
+			printf("%d", atoi(&ch));
 		}
+		if (counter == -1)
+		{
+			if(parityChecker % 2 == 0)
+				ptr = t;
+			else 
+				ptr = f;
+			printf("\t%c\t%d\t%s\n",decimal,decimal,ptr);
+			counter = 7;
+			decimal = 0;
+		}
+	}
+	//check if there are missing 0's
+	if(counter != -1 && counter != 7)
+	{
+		for(int i = 0;i<counter+1;i++)
+			printf("0");
+		printf("\t%c\t%d\t%s\n",decimal,decimal,ptr);
 	}
 }
 	//counter is less than 7
