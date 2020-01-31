@@ -1,6 +1,6 @@
 #include <fcntl.h>
 #include <stdio.h>
-
+#include "dep.h"
 void logic (int argc,char* argv [])
 {
 	printf("Original\tASCII\tDecimal\tParity");
