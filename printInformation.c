@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "dep.h"
-void printInformation(int file_descriptor)
+void printInformation(int file_descriptor, int terminator)
 {
 	int decimal = 0;
 	int counter = 7;
@@ -16,7 +16,7 @@ void printInformation(int file_descriptor)
 	int start = 1;
 	//can only use read(fd, buff, how many bits u want read)
 	//enter key = \n 
-	while(read(file_descriptor, &ch, sizeof(ch)) > 0 && ch != EOF)
+	while(read(file_descriptor, &ch, sizeof(ch)) > 0 && ch != terminator)
 	{
 		if (start == 1)
 		{
@@ -51,10 +51,11 @@ void printInformation(int file_descriptor)
 	//check if there are missing 0's, if there is append them. 
 	if(counter != -1 && counter != 7)
 	{
-		for(int i = 0;i < counter + 1;i++){
+		for(int i = 0;i < counter + 1;i++)
+		{
 			printf("0");
-			printf("\t    %c\t\t   %d\t\t  %s\n",decimal,decimal,ptr);
 		}
+		printf("\t    %c\t\t   %d\t\t  %s\n",decimal,decimal,ptr);
 	}
 }
 
