@@ -4,8 +4,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "dep.h"
-
-
 void printInformation(int file_descriptor)
 {
 	int decimal = 0;
@@ -15,8 +13,18 @@ void printInformation(int file_descriptor)
 	char f [] = "odd";
 	char *ptr = f;
 	char ch;
-	while(read(file_descriptor, &ch, sizeof(ch)) > 0 && ch != '\n')
+	int start = 1;
+	//can only use read(fd, buff, how many bits u want read)
+	//enter key = \n 
+	while(read(file_descriptor, &ch, sizeof(ch)) > 0 && ch != EOF)
 	{
+		if (start == 1)
+		{
+			printf("Original\tASCII\t\tDecimal\t\tParity");
+			printf("\n--------\t--------\t--------\t--------\n");
+			start = 0;
+		}
+		//if 0 or 1 detected
 		if((int)ch == 49 ||(int)ch == 48)
 		{
 			if (atoi(&ch) == 1)
@@ -26,23 +34,27 @@ void printInformation(int file_descriptor)
 			counter--;
 			printf("%d", atoi(&ch));
 		}
+		//8 chars print information out 
 		if (counter == -1)
 		{
 			if(parityChecker % 2 == 0)
 				ptr = t;
 			else 
 				ptr = f;
-			printf("\t%c\t%d\t%s\n",decimal,decimal,ptr);
+			printf("\t    %c\t\t   %d\t\t  %s\n",decimal,decimal,ptr);
 			counter = 7;
 			decimal = 0;
+			parityChecker = 0;
 		}
 	}
-	//check if there are missing 0's
+
+	//check if there are missing 0's, if there is append them. 
 	if(counter != -1 && counter != 7)
 	{
-		for(int i = 0;i<counter+1;i++)
+		for(int i = 0;i < counter + 1;i++){
 			printf("0");
-		printf("\t%c\t%d\t%s\n",decimal,decimal,ptr);
+			printf("\t    %c\t\t   %d\t\t  %s\n",decimal,decimal,ptr);
+		}
 	}
 }
 
