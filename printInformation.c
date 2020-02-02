@@ -12,11 +12,11 @@ void printInformation(int file_descriptor, int terminator)
 	char t [] = "even";
 	char f [] = "odd";
 	char *ptr = f;
-	char ch[2];
+	char ch[1];
 	int start = 1;
 	//can only use read(fd, buff, how many bits u want read)
 	//enter key = \n 
-	while(read(file_descriptor, &ch, sizeof(ch)) > 0 && ch != terminator)
+	while(read(file_descriptor, &ch[0], sizeof(ch)) > 0 && ch[0] != terminator)
 	{
 		if (start == 1)
 		{
@@ -25,13 +25,13 @@ void printInformation(int file_descriptor, int terminator)
 			start = 0;
 		}
 		//if 0 or 1 detected
-		if(((int)ch == 49 ||(int)ch == 48) && counter != -1 )
+		if(((int)ch[0] == 49 ||(int)ch[0] == 48) && counter != -1 )
 		{	
-			printf("%d", atoi(&ch));
-			if (atoi(&ch) == 1)
+			printf("%d", atoi(&ch[0]));
+			if (atoi(&ch[0]) == 1)
 				parityChecker++;
 			//gets 8 bit number
-			decimal = (pow(2, counter) * atoi(&ch)) + decimal;
+			decimal = (pow(2, counter) * atoi(&ch[0])) + decimal;
 			counter--;
 			
 		}
