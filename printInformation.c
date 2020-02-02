@@ -48,9 +48,13 @@ void printInformation(int file_descriptor, int terminator)
 		}
 	}
 
-	//check if there are missing 0's, if there is append them. 
+	//check if there are missing 0's, if there is append them and print out the info.
 	if(counter != -1 && counter != 7)
 	{
+		if(parityChecker % 2 == 0)
+			ptr = t;
+		else 
+			ptr = f;
 		for(int i = 0;i < counter + 1;i++)
 		{
 			printf("0");
