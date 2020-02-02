@@ -12,7 +12,7 @@ void printInformation(int file_descriptor, int terminator)
 	char t [] = "even";
 	char f [] = "odd";
 	char *ptr = f;
-	char ch;
+	char ch[2];
 	int start = 1;
 	//can only use read(fd, buff, how many bits u want read)
 	//enter key = \n 
