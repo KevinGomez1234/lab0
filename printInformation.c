@@ -25,14 +25,15 @@ void printInformation(int file_descriptor, int terminator)
 			start = 0;
 		}
 		//if 0 or 1 detected
-		if((int)ch == 49 ||(int)ch == 48)
-		{
+		if(((int)ch == 49 ||(int)ch == 48) && counter != -1 )
+		{	
+			printf("%d", atoi(&ch));
 			if (atoi(&ch) == 1)
 				parityChecker++;
 			//gets 8 bit number
 			decimal = (pow(2, counter) * atoi(&ch)) + decimal;
 			counter--;
-			printf("%d", atoi(&ch));
+			
 		}
 		//8 chars print information out 
 		if (counter == -1)
@@ -42,6 +43,7 @@ void printInformation(int file_descriptor, int terminator)
 			else 
 				ptr = f;
 			printf("\t    %c\t\t   %d\t\t  %s\n",decimal,decimal,ptr);
+
 			counter = 7;
 			decimal = 0;
 			parityChecker = 0;
