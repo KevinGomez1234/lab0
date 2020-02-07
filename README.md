@@ -5,7 +5,7 @@ STATUS: FINISHED
 
 To run use the make command and it will create an executable called zero-one. This program reads a sequence of 1's and 0's from the stdin or a file with text in the current directory.
 
-LOG
+Log
 ===============================================
 Author: KevinGomez1234 <51459099+KevinGomez1234@users.noreply.github.com>
 Date:   Sat Jan 25 09:52:36 2020 -0800
