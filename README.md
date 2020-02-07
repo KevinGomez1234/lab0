@@ -29,7 +29,8 @@ Author: Kevin Gomez <kevin_gomez@computer.local>
 Date:   Sat Feb 1 22:38:13 2020 -0800
 
     fixed parity checker for last string with missing 0's
-    
+
+Author: Kevin Gomez <kevin_gomez@computer.local>   
 Date:   Mon Feb 3 18:56:48 2020 -0800
 
     ignore the first bit fix
