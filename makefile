@@ -1,5 +1,5 @@
 target: main.o printInformation.o logic.o
-	gcc main.o printInformation.o logic.o -o main -lm
+	gcc main.o printInformation.o logic.o -o zero-one -lm
 main.o: main.c logic.o
 	gcc -c main.c -Wall -Wextra
 printInformation.o: printInformation.c
