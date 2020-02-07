@@ -19,13 +19,14 @@ void printInformation(int file_descriptor, int terminator)
 	//enter key = \n 
 	while(read(file_descriptor, &ch[0], sizeof(ch)) > 0 && ch[0] != terminator)
 	{
+		//start of the program print out the table header 
 		if (start == 1)
 		{
 			printf("Original\tASCII\t\tDecimal\t\tParity");
 			printf("\n--------\t--------\t--------\t--------\n");
 			start = 0;
 		}
-		//if 0 or 1 detected
+		//if a 0 or 1 is read then do something
 		if(((int)ch[0] == 49 ||(int)ch[0] == 48) && counter != -1 )
 		{	
 			//print out the value
@@ -36,19 +37,23 @@ void printInformation(int file_descriptor, int terminator)
 				parityChecker++;
 			}
 			//decimal keeps accumalating.
-			if(counter!=7){
+			if(counter!=7)
+			{
 				decimal = (pow(2, counter) * atoi(&ch[0])) + decimal;
 			}
 			counter--;
 			
-		}
+		}//endwhile
+		
 		//we've read 8 chars therefore print the missing information out
 		if (counter == -1)
 		{
-			if(parityChecker % 2 == 0){
+			if(parityChecker % 2 == 0)
+			{
 				ptr = t;
 			}
-			else{
+			else
+			{
 				ptr = f;
 			}
 			printf("\t    %c\t\t   %d\t\t  %s\n",decimal,decimal,ptr);
@@ -58,13 +63,15 @@ void printInformation(int file_descriptor, int terminator)
 		}
 	}
 
-	//if counter is not -1 
+	//if counter has not ended
 	if(counter != -1 && counter != 7)
 	{
-		if(parityChecker % 2 == 0){
+		if(parityChecker % 2 == 0)
+		{
 			ptr = t;
 		}
-		else{
+		else
+		{
 			ptr = f;
 		}
 		for(int i = 0;i < counter + 1;i++)
