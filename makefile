@@ -6,6 +6,5 @@ printInformation.o: printInformation.c
 	gcc -c printInformation.c -Wall -Wextra -lm
 logic.o: logic.c printInformation.o
 	gcc -c logic.c -Wall -Wextra
-clean:
+REM:
 	rm *.o
-	rm main
