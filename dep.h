@@ -1,5 +1,3 @@
-static const char* EVEN = "EVEN";
-static const char* ODD = "ODD";
 static const char nonPrintables [34][6] = 
 {
 	"[NUL]", "[SOH]", "[STX]", "[ETX]", "[EOT]", "[ENQ]", "[ACK]", "[BEL]", 

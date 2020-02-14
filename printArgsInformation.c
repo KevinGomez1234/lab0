@@ -11,6 +11,8 @@ void printArgsInformation(int argc, char* argv[])
 	int counter = 7;
 	int parityChecker = 0;
 	const char** ptr;
+	static const char* EVEN = "EVEN";
+	static const char* ODD = "ODD";
 	char ch[1];
 	printf("Original\t   ASCII\t\t Decimal\tParity\n");
 	printf("-------\t          -------\t\t-------\t       -------\n");

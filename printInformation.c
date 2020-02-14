@@ -9,6 +9,8 @@ void printInformation(int file_descriptor, int terminator)
 	int counter = 7;
 	int parityChecker = 0;
 	char ch[1];
+	static const char* EVEN = "EVEN";
+	static const char* ODD = "ODD";
 	const char** ptr;
 	printf("Original\t   ASCII\t\t Decimal\tParity\n");
 	printf("-------\t          -------\t\t-------\t       -------\n");
