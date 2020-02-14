@@ -68,7 +68,7 @@ void printArgsInformation(int argc, char* argv[])
 			if(decimal>=0 && decimal<=32)
 					printf("\t    %s\t\t\t   %d\t\t  %s\n", nonPrintables[decimal],decimal, *ptr);
 			else if(decimal == 127)
-				printf("\t    %s\t\t   %d\t\t  %s\n", nonPrintables[33],decimal, *ptr);
+					printf("\t    %s\t\t\t   %d\t\t  %s\n", nonPrintables[33],decimal, *ptr);
 			else	
 				printf("\t      %c\t\t\t   %d\t\t  %s\n",decimal,decimal,*ptr);
 			counter = 7;
