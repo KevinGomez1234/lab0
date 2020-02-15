@@ -12,8 +12,8 @@ void printInformation(int file_descriptor, int terminator)
 	static const char* EVEN = "EVEN";
 	static const char* ODD = "ODD";
 	const char** ptr;
-	printf("Original\t   ASCII\t\t Decimal\tParity\n");
-	printf("-------\t          -------\t\t-------\t       -------\n");
+	printf("Original        ASCII        Decimal        Parity \n");
+	printf("-------        -------        -------        ------- \n");
 
 	//use read(fd, buff, how many bits u want read)
 	while(read(file_descriptor, &ch[0], sizeof(ch)) > 0 && ch[0] != terminator)
@@ -38,11 +38,11 @@ void printInformation(int file_descriptor, int terminator)
 				ptr = &ODD;
 			//edge cases
 			if(decimal>=0 && decimal<=32)
-					printf("\t    %s\t\t\t   %d\t\t  %s\n", nonPrintables[decimal],decimal, *ptr);
+					printf("\t  %s         %d\t\t%s\n", nonPrintables[decimal],decimal, *ptr);
 			else if(decimal == 127)
-					printf("\t    %s\t\t\t   %d\t\t  %s\n", nonPrintables[33],decimal, *ptr);
+					printf("\t  %s         %d\t\t%s\n", nonPrintables[33],decimal, *ptr);
 			else	
-				printf("\t      %c\t\t\t   %d\t\t  %s\n",decimal,decimal,*ptr);
+					printf("\t  %c             %d\t\t%s\n", decimal,decimal, *ptr);
 			counter = 7;
 			decimal = 0;
 			parityChecker = 0;
@@ -62,11 +62,11 @@ void printInformation(int file_descriptor, int terminator)
 			}
 			//edge cases
 			if(decimal>=0 && decimal<=32)
-					printf("\t    %s\t\t\t   %d\t\t  %s\n", nonPrintables[decimal],decimal, *ptr);
+					printf("\t  %s         %d\t\t%s\n", nonPrintables[decimal],decimal, *ptr);
 			else if(decimal == 127)
-					printf("\t    %s\t\t\t   %d\t\t  %s\n", nonPrintables[33],decimal, *ptr);
+					printf("\t  %s         %d\t\t%s\n", nonPrintables[33],decimal, *ptr);
 			else	
-				printf("\t      %c\t\t\t   %d\t\t  %s\n",decimal,decimal,*ptr);
+					printf("\t  %c             %d\t\t%s\n", decimal,decimal, *ptr);
 			counter = 7;
 			decimal = 0;
 			parityChecker = 0;

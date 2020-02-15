@@ -14,8 +14,8 @@ void printArgsInformation(int argc, char* argv[])
 	static const char* EVEN = "EVEN";
 	static const char* ODD = "ODD";
 	char ch[1];
-	printf("Original\t   ASCII\t\t Decimal\tParity\n");
-	printf("-------\t          -------\t\t-------\t       -------\n");
+	printf("Original        ASCII        Decimal        Parity \n");
+	printf("-------        -------        -------        ------- \n");
 
 	for(int i = 1; i<argc;i++)
 	{
@@ -42,11 +42,11 @@ void printArgsInformation(int argc, char* argv[])
 
 				//edge cases
 				if(decimal>=0 && decimal<=32)
-					printf("\t    %s\t\t\t   %d\t\t  %s\n", nonPrintables[decimal],decimal, *ptr);
+					printf("\t  %s         %d\t\t%s\n", nonPrintables[decimal],decimal, *ptr);
 				else if(decimal == 127)
-					printf("\t    %s\t\t   %d\t\t  %s\n", nonPrintables[33],decimal, *ptr);
+					printf("\t  %s         %d\t\t%s\n", nonPrintables[33],decimal, *ptr);
 				else	
-					printf("\t      %c\t\t\t   %d\t\t  %s\n",decimal,decimal,*ptr);
+					printf("\t  %c             %d\t\t%s\n", decimal,decimal, *ptr);
 				counter = 7;
 				decimal = 0;
 				parityChecker = 0;
@@ -66,11 +66,11 @@ void printArgsInformation(int argc, char* argv[])
 			}
 			//edge cases
 			if(decimal>=0 && decimal<=32)
-					printf("\t    %s\t\t\t   %d\t\t  %s\n", nonPrintables[decimal],decimal, *ptr);
+					printf("\t  %s         %d\t\t%s\n", nonPrintables[decimal],decimal, *ptr);
 			else if(decimal == 127)
-					printf("\t    %s\t\t\t   %d\t\t  %s\n", nonPrintables[33],decimal, *ptr);
+					printf("\t  %s         %d\t\t%s\n", nonPrintables[33],decimal, *ptr);
 			else	
-				printf("\t      %c\t\t\t   %d\t\t  %s\n",decimal,decimal,*ptr);
+					printf("\t  %c             %d\t\t%s\n", decimal,decimal, *ptr);
 			counter = 7;
 			decimal = 0;
 			parityChecker = 0;
