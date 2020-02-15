@@ -3,7 +3,7 @@ Making Sense of Ones and Zeros
 
 STATUS: FINISHED
 
-To run use the make command and it will create an executable called zero-one. This program reads a sequence of 1's and 0's from the stdin or a file with text in the current directory.
+To run use the make command and it will create an executable called ./lab0. This program reads a sequence of 1's and 0's from the stdin or a file with text in the current directory.
 
 Log
 ===============================================
