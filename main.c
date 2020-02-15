@@ -52,7 +52,7 @@ void printInformation(int file_descriptor, int terminator)
 				decimal = (pow(2, counter) * atoi(&ch[0])) + decimal;
 			counter--;
 		}//endwhile
-			
+
 		//we've read 8 chars therefore print the missing information out
 		if (counter == -1)
 		{
@@ -63,11 +63,11 @@ void printInformation(int file_descriptor, int terminator)
 				ptr = &ODD;
 			//edge cases to print out 0-32 or 127
 			if(decimal>=0 && decimal<=32)
-					printf("\t  %s         %d\t\t%s\n", nonPrintables[decimal],decimal, *ptr);
+				printf("\t  %s         %d\t\t%s\n", nonPrintables[decimal],decimal, *ptr);
 			else if(decimal == 127)
-					printf("\t  %s         %d\t\t%s\n", nonPrintables[33],decimal, *ptr);
+				printf("\t  %s         %d\t\t%s\n", nonPrintables[33],decimal, *ptr);
 			else	
-					printf("\t  %c             %d\t\t%s\n", decimal,decimal, *ptr);
+				printf("\t  %c             %d\t\t%s\n", decimal,decimal, *ptr);
 			//reset vars
 			counter = 7;
 			decimal = 0;
@@ -78,24 +78,24 @@ void printInformation(int file_descriptor, int terminator)
 	//if counter has not ended and we havent started reading new chars, but we reached end of the loop, then we have extra 0's to pad.
 	if(counter != -1 && counter != 7)
 	{
-			if(parityChecker % 2 == 0)
-				ptr = &EVEN;
-			else
-				ptr = &ODD;
-			for(int i = 0;i < counter + 1;i++)
-			{
-				printf("0");
-			}
+		if(parityChecker % 2 == 0)
+			ptr = &EVEN;
+		else
+			ptr = &ODD;
+		for(int i = 0;i < counter + 1;i++)
+		{
+			printf("0");
+		}
 			//edge cases
-			if(decimal>=0 && decimal<=32)
-					printf("\t  %s         %d\t\t%s\n", nonPrintables[decimal],decimal, *ptr);
-			else if(decimal == 127)
-					printf("\t  %s         %d\t\t%s\n", nonPrintables[33],decimal, *ptr);
-			else	
-					printf("\t  %c             %d\t\t%s\n", decimal,decimal, *ptr);
-			counter = 7;
-			decimal = 0;
-			parityChecker = 0;
+		if(decimal>=0 && decimal<=32)
+			printf("\t  %s         %d\t\t%s\n", nonPrintables[decimal],decimal, *ptr);
+		else if(decimal == 127)
+			printf("\t  %s         %d\t\t%s\n", nonPrintables[33],decimal, *ptr);
+		else	
+			printf("\t  %c             %d\t\t%s\n", decimal,decimal, *ptr);
+		counter = 7;
+		decimal = 0;
+		parityChecker = 0;
 	}
 }
 
@@ -154,25 +154,25 @@ void printArgsInformation(int argc, char* argv[])
 	// pad extra 0's
 	if(counter != -1 && counter != 7)
 	{
-			if(parityChecker % 2 == 0)
-				ptr = &EVEN;
-			else
-				ptr = &ODD;
+		if(parityChecker % 2 == 0)
+			ptr = &EVEN;
+		else
+			ptr = &ODD;
 			//print out missing 0's
-			for(int i = 0;i < counter + 1;i++)
-			{
-				printf("0");
-			}
-			//edge cases 
-			if(decimal>=0 && decimal<=32)
-					printf("\t  %s         %d\t\t%s\n", nonPrintables[decimal],decimal, *ptr);
-			else if(decimal == 127)
-					printf("\t  %s         %d\t\t%s\n", nonPrintables[33],decimal, *ptr);
-			else	
-					printf("\t  %c             %d\t\t%s\n", decimal,decimal, *ptr);
-			counter = 7;
-			decimal = 0;
-			parityChecker = 0;
+		for(int i = 0;i < counter + 1;i++)
+		{
+			printf("0");
+		}
+		//edge cases 
+		if(decimal>=0 && decimal<=32)
+			printf("\t  %s         %d\t\t%s\n", nonPrintables[decimal],decimal, *ptr);
+		else if(decimal == 127)
+			printf("\t  %s         %d\t\t%s\n", nonPrintables[33],decimal, *ptr);
+		else	
+			printf("\t  %c             %d\t\t%s\n", decimal,decimal, *ptr);
+		counter = 7;
+		decimal = 0;
+		parityChecker = 0;
 	}
 }
 
